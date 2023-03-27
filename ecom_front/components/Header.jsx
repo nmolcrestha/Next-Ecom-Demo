@@ -13,13 +13,13 @@ import { VscChromeClose } from "react-icons/vsc";
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [showCatMenu, setShowCatMenu] = useState(false);
-  const [show, setShow] = useState("tramslate-y-0");
+  const [show, setShow] = useState("translate-y-0");
   const [lastScrollY, setLastScrollY] = useState(0);
 
   //Scroll and Hide the Nav.
   const controlNavBar = () => {
     if(window.scrollY > 200) {
-      if(window.screenY > lastScrollY && !mobileMenu){
+      if(window.scrollY > lastScrollY && !mobileMenu){
         setShow('-translate-y-[80px]');
       }else{
         setShow('shadow-sm');
@@ -27,7 +27,7 @@ const Header = () => {
     }else{
       setShow('translate-y-0');
     }
-    setLastScrollY(window.screenY);
+    setLastScrollY(window.scrollY);
   }
 
   useEffect(()=>{
