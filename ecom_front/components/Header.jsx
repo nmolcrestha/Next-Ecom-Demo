@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Wrapper from "./Wrapper";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,6 +15,27 @@ const Header = () => {
   const [showCatMenu, setShowCatMenu] = useState(false);
   const [show, setShow] = useState("tramslate-y-0");
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  //Scroll and Hide the Nav.
+  const controlNavBar = () => {
+    if(window.scrollY > 200) {
+      if(window.screenY > lastScrollY && !mobileMenu){
+        setShow('-translate-y-[80px]');
+      }else{
+        setShow('shadow-sm');
+      }
+    }else{
+      setShow('translate-y-0');
+    }
+    setLastScrollY(window.screenY);
+  }
+
+  useEffect(()=>{
+    window.addEventListener('scroll', controlNavBar);
+    return () => {
+      window.removeEventListener('scroll', controlNavBar)
+    }
+  },[lastScrollY])
 
   return (
     <header
