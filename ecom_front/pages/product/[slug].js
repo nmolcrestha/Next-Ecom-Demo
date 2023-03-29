@@ -2,6 +2,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import ProductDetailsCarousel from "@/components/ProductDetailsCarousel";
 import Wrapper from "@/components/Wrapper";
 import React from "react";
+import RelatedProducts from "@/components/RelatedProducts";
 
 const ProductDetails = () => {
   return (
@@ -105,6 +106,8 @@ const ProductDetails = () => {
           </div>
           {/* right column end */}
         </div>
+        
+        <RelatedProducts/>
       </Wrapper>
     </div>
   );
